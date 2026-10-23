@@ -1,0 +1,10 @@
+{
+  "version": "1.1.0",
+  "publishedAt": "2026-10-16T00:00:00Z",
+  "notes": "新增 4 個擴充單字（曙光星、水幕星），微調脈衝砲 Lv1 傷害、偵察疾行者 HP 與波間秒數。",
+  "packs": [
+    { "id": "news", "url": "news.json", "kind": "news" },
+    { "id": "vocab-extra", "url": "vocab-extra.json", "kind": "vocab" },
+    { "id": "balance", "url": "balance.json", "kind": "balance" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "vocab-extra",
+  "version": "1.1.0",
+  "planets": {
+    "lumen_prime": [
+      { "word": "turquoise", "pos": "adj.", "zh": "綠松色的；藍綠色的", "enDef": "a bright blue-green color", "example": "The shield glows turquoise at night.", "exampleZh": "護盾在夜裡發出藍綠色的光。" },
+      { "word": "crescent", "pos": "n.", "zh": "新月形", "enDef": "a curved shape like a thin moon", "example": "A silver crescent hangs over the base.", "exampleZh": "一道新月掛在基地上空。" }
+    ],
+    "aqua_veil": [
+      { "word": "fortnight", "pos": "n.", "zh": "兩星期", "enDef": "a period of two weeks", "example": "The fleet returns in a fortnight.", "exampleZh": "艦隊兩星期後返航。" },
+      { "word": "dozen", "pos": "n.", "zh": "一打；十二個", "enDef": "a group of twelve", "example": "A dozen drones are coming.", "exampleZh": "一打無人機正在逼近。" }
+    ]
+  }
+}

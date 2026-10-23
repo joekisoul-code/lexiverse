@@ -1,0 +1,18 @@
+/* 14-cinematic §3.7（cine-fonts，wave 0）：電影化顯示字型（SIL OFL 1.1，授權文字 fonts/OFL-Jost.txt、OFL-IBMPlexSansCondensed.txt、OFL-NotoSansTC.txt）。
+ * 只有 src/ui/brand/manifest.ts 的 CINE_FONT_FILES（3 個 woff2）全部存在時，vite.config 才以 <link> 載入本檔（cineFontHeadMarkup(true)）；
+ * 缺任一檔就不載入，畫面走 styles.css §3.8 的系統字後援。字型檔只由協調者執行 scripts/art/fetch-fonts.mjs 取得。
+ * 族名一律用別名（LX Lat／LX Num／LX TC Display），不使用原字族名（IBM Plex 的 RFN「Plex」、Noto Sans TC 源自 Source Han Sans 的 RFN「Source」）。
+ * font-display: optional：首屏不等字型、不換字（第一次造訪可能是系統字，之後由 precache 直接命中）；不 preload 顯示字型。
+ * LX Lat、LX Num 是 Google 發布的 latin 子集原檔（不裁切），unicode-range 與 Google 一致；LX TC Display 是 text= 標題子集（fonts/lx-tc-display.charset.txt，≤ 450 字），
+ * 子集外的字逐字退回堆疊中的系統中文字。
+ * LX Num 只有 500 一個檔：字重宣告 400–700，讓 600／700 的讀數也直接用 500，不產生合成粗體。 */
+@font-face{font-family:'LX Lat';font-style:normal;font-weight:300 500;font-display:optional;src:url(./fonts/lx-lat.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'LX Num';font-style:normal;font-weight:400 700;font-display:optional;src:url(./fonts/lx-num.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'LX TC Display';font-style:normal;font-weight:300;font-display:optional;src:url(./fonts/lx-tc-display.woff2) format('woff2')}
+/* size-adjust 後援（§3.7 CLS）：字型尚未到位時用本機字，字寬與上下緣對齊顯示字，讓第一次與之後的造訪版面一致。
+ * 數值依 Segoe UI 估計（LX Lat：Jost 上緣 1070／下緣 375／字寬約 +2%；LX Num：Plex Sans Condensed 上緣 1025／下緣 275、數字寬 .54em ÷ Segoe .565em），
+ * ascent／descent 已除以 size-adjust；待協調者下載後由 cine-qa 以 tnum 與 CLS 實測校正。
+ * 使用方式：styles.css 的 --font-lat、--font-num-cine 需把 'LX Lat Fallback'、'LX Num Fallback' 接在 'LX Lat'、'LX Num' 之後（cine-tokens）。 */
+@font-face{font-family:'LX Lat Fallback';font-style:normal;font-weight:300;src:local('Segoe UI Light'),local('SegoeUI-Light'),local('SF Pro Display Light'),local('SFProDisplay-Light'),local('Helvetica Neue Light'),local('HelveticaNeue-Light');size-adjust:102%;ascent-override:104.9%;descent-override:36.8%;line-gap-override:0%}
+@font-face{font-family:'LX Lat Fallback';font-style:normal;font-weight:400 500;src:local('Segoe UI'),local('SegoeUI'),local('SF Pro Display'),local('SFProDisplay-Regular'),local('Helvetica Neue'),local('HelveticaNeue'),local('Arial'),local('ArialMT');size-adjust:102%;ascent-override:104.9%;descent-override:36.8%;line-gap-override:0%}
+@font-face{font-family:'LX Num Fallback';font-style:normal;font-weight:400 700;src:local('Segoe UI Semibold'),local('SegoeUI-Semibold'),local('SF Pro Text Medium'),local('SFProText-Medium'),local('Helvetica Neue Medium'),local('HelveticaNeue-Medium'),local('Arial');size-adjust:95.5%;ascent-override:107.3%;descent-override:28.8%;line-gap-override:0%}

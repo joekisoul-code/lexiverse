@@ -1,0 +1,13 @@
+{
+  "id": "balance",
+  "version": "1.1.0",
+  "buildings": {
+    "pulse_cannon": { "0": { "damage": 13 } }
+  },
+  "enemies": {
+    "scout_runner": { "hp": 32 }
+  },
+  "formulas": {
+    "waveIntervalSec": 13
+  }
+}
